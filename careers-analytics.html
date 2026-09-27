@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Workforce & Careers Analytics | NEO</title><link rel="icon" href="assets/neo-mark.svg"><link rel="stylesheet" href="assets/neo.css"><script defer src="assets/neo.js"></script><script defer src="assets/auth.js"></script></head>
+<body class="theme-aurora workspace-page">
+<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark"><span>N</span></span><span class="brand-text">NEO</span></a><nav class="main-nav"><a href="workspace.html">Command Center</a><a class="active" href="careers-analytics.html">Workforce Analytics</a><a href="it-tickets.html">IT Service Desk</a><a href="audit-trail.html">Audit Trail</a></nav><div class="header-actions"><button class="btn btn-ghost" id="logoutBtn">Log out</button></div></header>
+<main class="module-page">
+<div class="container module-top"><a class="back-link" href="workspace.html">← Command Center</a><div class="eyebrow gradient">WORKFORCE / CAREERS ANALYTICS</div><h1>Filter the workforce view.</h1><p>System administrators can filter career and workforce information by country, city, role, employment type and experience.</p></div>
+<section class="container"><div class="workspace-card"><div class="career-filters">
+<label>Country<select id="cfCountry"><option>All</option><option>India</option><option>USA</option><option>UK</option><option>Germany</option><option>UAE</option><option>Japan</option></select></label>
+<label>City<select id="cfCity"><option>All</option><option>Mumbai</option><option>Pune</option><option>Bengaluru</option><option>London</option><option>Berlin</option><option>Dubai</option><option>New York</option></select></label>
+<label>Role<select id="cfRole"><option>All</option><option>QC Analyst</option><option>QA Executive</option><option>Scientist</option><option>Manager</option><option>Production Officer</option></select></label>
+<label>Employment<select id="cfEmployment"><option>All</option><option>Full-time</option><option>Part-time</option></select></label>
+<label>Experience<select id="cfExperience"><option>All</option><option>0–2 years</option><option>3–5 years</option><option>6–10 years</option><option>10+ years</option></select></label>
+</div>
+<div id="careerTable" class="career-table"></div></div></section>
+</main>
+<footer class="footer"><div class="container footer-bottom"><span>© 2026 NEO Private Limited</span><span>Workforce analytics</span></div></footer>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+const data=[
+{name:"A",country:"India",city:"Mumbai",role:"QC Analyst",employment:"Full-time",experience:"3–5 years"},
+{name:"B",country:"India",city:"Pune",role:"QA Executive",employment:"Full-time",experience:"6–10 years"},
+{name:"C",country:"UK",city:"London",role:"Scientist",employment:"Part-time",experience:"10+ years"},
+{name:"D",country:"Germany",city:"Berlin",role:"Manager",employment:"Full-time",experience:"10+ years"},
+{name:"E",country:"UAE",city:"Dubai",role:"Production Officer",employment:"Full-time",experience:"3–5 years"}];
+const r=()=>{const f=id=>document.getElementById(id).value;const a=data.filter(x=>(f("cfCountry")==="All"||x.country===f("cfCountry"))&&(f("cfCity")==="All"||x.city===f("cfCity"))&&(f("cfRole")==="All"||x.role===f("cfRole"))&&(f("cfEmployment")==="All"||x.employment===f("cfEmployment"))&&(f("cfExperience")==="All"||x.experience===f("cfExperience")));document.getElementById("careerTable").innerHTML=a.map(x=>`<div class="career-row"><div><b>${x.name}</b><small>${x.country} · ${x.city}</small></div><span>${x.role}</span><span>${x.employment}</span><span>${x.experience}</span></div>`).join("")||'<div class="small-message">No workforce records match the filters.</div>'};document.querySelectorAll(".career-filters select").forEach(s=>s.addEventListener("change",r));r();
+});
+</script>
+</body></html>

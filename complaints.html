@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Complaint Handling | NEO</title><link rel="icon" href="assets/neo-mark.svg"><link rel="stylesheet" href="assets/neo.css">
+<script defer src="assets/neo.js"></script><script defer src="assets/auth.js"></script><script defer src="assets/department.js"></script>
+</head>
+<body class="theme-aurora workspace-page department-page" data-department-page="Complaint Handling">
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark"><span>N</span></span><span class="brand-text">NEO</span></a>
+<nav class="main-nav"><a href="workspace.html">Command Center</a><a class="active" href="complaints.html">Complaint Handling</a><a href="agent.html">NEO Agent</a><a href="audit-trail.html">Audit Trail</a></nav>
+<div class="header-actions"><a class="header-link" href="workspace.html">All Sections</a><button class="btn btn-ghost" id="logoutBtn">Log out</button></div>
+</header>
+<main class="module-page">
+<section class="container module-top">
+<a class="back-link" href="workspace.html">← Command Center</a>
+<div class="eyebrow gradient">COMPLAINT HANDLING DEPARTMENT</div>
+<h1>Complaint Handling</h1>
+<p>Complaint intake, triage, investigation, product trends and closure. All actions are role-scoped and recorded in the NEO audit trail.</p>
+<div class="department-action-bar">
+<a class="department-action primary" href="incident.html?dept=complaints">＋ New Incident</a>
+<a class="department-action primary" href="deviations.html?dept=complaints">＋ Raise Deviation</a>
+<a class="department-action" href="oox.html?dept=complaints">＋ New OOX</a>
+<a class="department-action" href="trends.html?dept=complaints">⌁ Trends</a>
+<a class="department-action" href="audit-trail.html?dept=complaints">◷ Audit Trail</a>
+<a class="department-action" href="it-tickets.html?dept=complaints">🎫 IT Ticket</a>
+<a class="department-action" href="agent.html?dept=complaints">✦ Complaint Handling NEO Agent</a>
+</div>
+</section>
+
+<section class="container section">
+<div class="dept-overview-grid">
+<div class="workspace-card">
+<div class="card-head"><div><div class="eyebrow">OPEN WORK</div><h2>Complaint Handling activity</h2></div><span class="tag" data-session-department>—</span></div>
+<div class="dept-kpis">
+<div><small>OPEN INCIDENTS</small><b data-dept-incidents>0</b></div>
+<div><small>OPEN DEVIATIONS</small><b data-dept-deviations>0</b></div>
+<div><small>OPEN TICKETS</small><b data-dept-tickets>0</b></div>
+<div><small>TREND SIGNALS</small><b data-dept-trends>0</b></div>
+</div>
+<div class="section-links-grid">
+<a href="incident.html?dept=complaints">Incident Center →</a>
+<a href="deviations.html?dept=complaints">Deviation Center →</a>
+<a href="trends.html?dept=complaints">Product Trends →</a>
+<a href="it-tickets.html?dept=complaints">IT Tickets →</a>
+</div>
+</div>
+<div class="workspace-card">
+<div class="eyebrow gradient">NEO AGENT · COMPLAINT HANDLING</div>
+<h2>Agent for Complaint Handling</h2>
+<p class="module-muted">This agent is restricted to the authenticated department scope. It can work on incidents, deviations, SOPs, trends and tickets from this section.</p>
+<div class="dept-agent">
+<button data-dept-prompt="Summarize the open activity in this Complaint Handling department.">Summarize open activity</button>
+<button data-dept-prompt="Show the recent incident and deviation pattern in this department.">Show activity pattern</button>
+<button data-dept-prompt="What evidence should I review first?">Recommend review order</button>
+</div>
+<div class="dept-agent-output" data-dept-agent-output>NEO is ready for the Complaint Handling department.</div>
+</div>
+</div>
+</section>
+
+<section class="container section section-soft">
+<div class="section-head"><div><div class="eyebrow">PRODUCT-WISE TRENDING</div><h2>Majority / minority event signals.</h2></div><p>Open Trends to see product-level figures, event types, severity distribution and recurring signals for this department.</p></div>
+<div class="trend-mini-grid">
+<div><small>MAJORITY EVENT</small><b data-majority-event>—</b><span data-majority-count>0 events</span></div>
+<div><small>MINORITY EVENT</small><b data-minority-event>—</b><span data-minority-count>0 events</span></div>
+<div><small>PRODUCT WITH MOST SIGNALS</small><b data-top-product>—</b><span data-top-product-count>0 signals</span></div>
+</div>
+</section>
+
+<section class="container section">
+<div class="workspace-card">
+<div class="card-head"><div><div class="eyebrow">ACTION AUDIT TRAIL</div><h2>Latest changes in Complaint Handling</h2></div><a class="btn btn-ghost" href="audit-trail.html?dept=complaints">Full audit trail</a></div>
+<div class="dept-audit-list" data-dept-audit></div>
+</div>
+</section>
+</main>
+<footer class="footer"><div class="container footer-bottom"><span>© 2026 NEO Private Limited</span><span>Complaint Handling department</span></div></footer>
+</body></html>

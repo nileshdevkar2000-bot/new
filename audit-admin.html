@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Audit Access Administration | NEO</title><link rel="icon" href="assets/neo-mark.svg"><link rel="stylesheet" href="assets/neo.css"><script defer src="assets/auth.js"></script><script defer src="assets/audit-admin.js"></script></head>
+<body class="theme-aurora workspace-page">
+<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark"><span>N</span></span><span class="brand-text">NEO</span></a><nav class="main-nav"><a href="workspace.html">Command Center</a><a class="active" href="audit-admin.html">Audit Access Admin</a></nav><div class="header-actions"><a class="header-link" href="audit-access.html">Audit Access</a><button class="btn btn-ghost" id="logoutBtn">Log out</button></div></header>
+<main class="module-page"><div id="sme"></div><div class="container module-top"><a class="back-link" href="audit-access.html">← Audit Access</a><div class="eyebrow gradient">AUDIT ACCESS ADMINISTRATION</div><h1>Manage who can see what.</h1><p>Create separate Front Room Only and Back Room Only access profiles for the audit workflow.</p></div>
+<section class="container section"><div class="module-work-grid">
+<div class="workspace-card"><div class="eyebrow">CREATE ACCESS PROFILE</div><form id="auditAdminForm" class="auth-form">
+<label>Login ID<input id="newAuditId" required placeholder="AUD-FR-002"></label>
+<label>Password<div class="password-wrap"><input id="newAuditPass" type="password" required placeholder="Create password"><button type="button" class="password-toggle" data-target="newAuditPass">Show</button></div></label>
+<label>Role<select id="newAuditRole"><option value="FRONT">Front Room Only</option><option value="BACK">Back Room Only</option></select></label>
+<button class="btn btn-primary auth-submit" type="submit">Create audit access</button><div id="auditAdminMessage" class="small-message"></div></form></div>
+<div class="workspace-card"><div class="eyebrow">ACTIVE DEMO PROFILES</div><div id="auditProfiles" class="profile-list"></div></div>
+</div></section><section class="container section"><div class="workspace-card"><div class="eyebrow gradient">SME VERIFICATION</div><h2>Open controlled SME workflow</h2><a class="btn btn-primary" href="audit-sme.html">Open Human SME Verification</a></div></section></main>
+<footer class="footer"><div class="container footer-bottom"><span>© 2026 NEO Private Limited</span><span>Audit Access Administration</span></div></footer></body></html>

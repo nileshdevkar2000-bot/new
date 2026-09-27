@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deviations | NEO</title>
+<link rel="icon" href="assets/neo-mark.svg"><link rel="stylesheet" href="assets/neo.css">
+<script defer src="assets/neo.js"></script><script defer src="assets/auth.js"></script><script defer src="assets/deviations.js"></script>
+</head>
+<body class="theme-aurora workspace-page">
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark"><span>N</span></span><span class="brand-text">NEO</span></a>
+<nav class="main-nav"><a href="workspace.html">Command Center</a><a class="active" href="qms.html">QMS</a><a href="agent.html">NEO Agent</a><a href="audit-trail.html">Audit Trail</a></nav>
+<div class="header-actions"><a class="header-link" href="qms.html">QMS Home</a><button class="btn btn-ghost" id="logoutBtn">Log out</button></div>
+</header>
+<main class="module-page">
+<div class="container module-top"><a class="back-link" href="qms.html">← QMS &amp; Compliance</a><div class="eyebrow gradient">DEVIATION MANAGEMENT</div><h1>Raised deviations.</h1><p>Open a record, see its workflow status, access Level 1 investigation and continue through controlled signature gates.</p></div>
+<section class="container">
+<div class="qms-actionbar">
+<a class="action-btn primary" href="#new">＋ Raise Deviation</a><a class="action-btn" href="incident.html">New Incident</a><a class="action-btn" href="trends.html">Trends</a><a class="action-btn" href="audit-trail.html">Audit Trail</a>
+</div>
+<div id="deviationList" class="deviation-table"></div>
+</section>
+<section class="container section" id="new">
+<div class="workspace-card">
+<div class="card-head"><div><div class="eyebrow">CREATE RECORD</div><h2>Raise a new deviation</h2></div><span class="tag">AUTHENTICATED USER</span></div>
+<form id="deviationForm" class="deviation-form">
+<div class="auth-two">
+<label>Department<select id="devDept" required><option value="">Select</option><option>Quality Assurance</option><option>Quality Control</option><option>Manufacturing</option><option>Production</option><option>Supply Chain</option><option>R&amp;D</option><option>Clinical Trial</option><option>Regulatory Affairs</option><option>Pharmacovigilance</option><option>Complaint Handling</option><option>Opex</option><option>Medical Affairs</option><option>IT &amp; Digital Operations</option></select></label>
+<label>Severity<select id="devSeverity" required><option>Minor</option><option>Major</option><option>Critical</option></select></label>
+</div>
+<label>Deviation title<input id="devTitle" required placeholder="Short controlled title"></label>
+<div class="auth-two">
+<label>Event date<input id="devDate" type="date" required></label>
+<label>Reference / batch / document<input id="devRef" placeholder="Batch, sample, instrument, document..."></label>
+</div>
+<label>Description / initial observation<textarea id="devDescription" required rows="6" placeholder="Describe what was observed, where and when."></textarea>
+<label class="check"><input id="devImmediate" type="checkbox"> Immediate containment / temporary control implemented</label>
+<button class="btn btn-primary" type="submit">Create deviation draft</button>
+<div id="devCreateMessage" class="small-message"></div>
+</form>
+</div>
+</section>
+</main>
+<footer class="footer"><div class="container footer-bottom"><span>© 2026 NEO Private Limited</span><span>Deviation management</span></div></footer>
+</body></html>

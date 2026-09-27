@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deviation | NEO</title>
+<link rel="icon" href="assets/neo-mark.svg"><link rel="stylesheet" href="assets/neo.css">
+<script defer src="assets/neo.js"></script><script defer src="assets/auth.js"></script><script defer src="assets/deviation.js"></script>
+</head>
+<body class="theme-aurora workspace-page">
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark"><span>N</span></span><span class="brand-text">NEO</span></a>
+<nav class="main-nav"><a href="workspace.html">Command Center</a><a class="active" href="qms.html">QMS</a><a href="agent.html">NEO Agent</a><a href="audit-trail.html">Audit Trail</a></nav>
+<div class="header-actions"><a class="header-link" href="deviations.html">All Deviations</a><button class="btn btn-ghost" id="logoutBtn">Log out</button></div>
+</header>
+<main class="module-page">
+<section class="container module-top">
+<a class="back-link" href="deviations.html">← Deviations</a>
+<div id="deviationHeader"></div>
+</section>
+
+<section class="container">
+<div class="deviation-layout">
+<div class="workspace-card">
+<div class="card-head"><div><div class="eyebrow">CONTROLLED WORKFLOW</div><h2>Deviation lifecycle</h2></div><span id="devLockTag" class="tag">UNLOCKED</span></div>
+<div id="workflowSteps" class="workflow-steps"></div>
+</div>
+<aside class="workspace-card">
+<div class="eyebrow">NEO AGENT</div>
+<h2>Work with this deviation.</h2>
+<p class="module-muted">Ask NEO to summarize the current evidence, find similar historical events or prepare the next step.</p>
+<a class="btn btn-primary full" id="agentContextLink" href="agent.html">Open NEO Agent</a>
+<div class="mini-agent-prompts">
+<button data-dev-prompt="Summarize this deviation and identify the current gaps.">Summarize deviation</button>
+<button data-dev-prompt="Find similar previous deviations and recurring patterns.">Find similar history</button>
+<button data-dev-prompt="Prepare Level 1 investigation questions.">Prepare Level 1 investigation</button>
+</div>
+</aside>
+</div>
+</section>
+
+<section class="container section">
+<div class="workspace-card">
+<div class="card-head"><div><div class="eyebrow">LEVEL 1 INVESTIGATION</div><h2>Initial investigation &amp; containment</h2></div><span class="tag">MANDATORY</span></div>
+<form id="level1Form" class="investigation-form">
+<div class="auth-two">
+<label>Investigator login ID<input id="invLoginId" placeholder="Registered NEO login ID"></label>
+<label>Immediate classification<select id="invClass"><option>Pending</option><option>Human error</option><option>Method / procedure</option><option>Equipment / instrument</option><option>Material / supplier</option><option>Process</option><option>Other</option></select></label>
+</div>
+<label>Initial evidence reviewed<textarea id="invEvidence" rows="5" placeholder="Records, SOPs, interviews, batch, instrument or system checks reviewed..."></textarea></label>
+<label>Immediate containment<textarea id="invContainment" rows="4" placeholder="Containment / temporary controls..."></textarea></label>
+<label>Level 1 conclusion<textarea id="invConclusion" rows="5" placeholder="Initial conclusion and recommendation to proceed..."></textarea></label>
+<div class="signature-bar">
+<div><b>Level 1 signature</b><small>Login ID + password required to lock this investigation step.</small></div>
+<button class="btn btn-primary" id="signLevel1" type="button">Sign &amp; lock Level 1</button>
+</div>
+<div id="level1Message" class="small-message"></div>
+</form>
+</div>
+</section>
+
+<section class="container section section-soft">
+<div class="section-head"><div><div class="eyebrow">EVIDENCE &amp; HISTORY</div><h2>Connected records.</h2></div><p>NEO should keep the deviation anchored to original records instead of replacing them with generated text.</p></div>
+<div id="linkedEvidence" class="cards"></div>
+</section>
+</main>
+<footer class="footer"><div class="container footer-bottom"><span>© 2026 NEO Private Limited</span><span>Deviation detail</span></div></footer>
+
+<div id="signatureModal" class="modal-backdrop" hidden>
+<div class="signature-modal">
+<button class="modal-close" id="closeSignature">×</button>
+<div class="eyebrow gradient">HUMAN AUTHORIZATION</div>
+<h2>Sign and lock this step.</h2>
+<p>The signature is recorded against the logged-in user identity. After signing, the step becomes locked in the prototype.</p>
+<label>Login ID<input id="signatureLoginId" placeholder="Registered login ID"></label>
+<label>Password<div class="password-wrap"><input id="signaturePassword" type="password" placeholder="Password"><button type="button" class="password-toggle" data-target="signaturePassword">Show</button></div></label>
+<button class="btn btn-primary full" id="confirmSignature">Confirm digital signature</button>
+<div id="signatureMessage" class="small-message"></div>
+</div>
+</div>
+</body></html>

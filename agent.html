@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEO Agent | Intelligent Workspace</title>
+<link rel="icon" href="assets/neo-mark.svg"><link rel="stylesheet" href="assets/neo.css">
+<script defer src="assets/neo.js"></script><script defer src="assets/auth.js"></script><script defer src="assets/agent.js"></script>
+<link rel="preconnect" href="https://generativelanguage.googleapis.com">
+</head>
+<body class="theme-aurora agent-page">
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark"><span>N</span></span><span class="brand-text">NEO</span></a>
+<nav class="main-nav"><a href="/careers.html">Careers</a><a href="workspace.html">Command Center</a><a href="qms.html">QMS</a><a href="departments.html">Departments</a><a href="audit.html">Audit</a><a href="audit-trail.html">Audit Trail</a><a class="active" href="agent.html">NEO Agent</a><a href="privacy.html">Privacy</a></nav>
+<div class="header-actions"><button class="color-switcher" type="button" data-theme-switch><span class="color-dot"></span>AI Color</button><button class="btn btn-ghost" id="agentLogout">Log out</button></div><button class="mobile-toggle">Menu</button>
+</header>
+
+<main class="agent-shell">
+<aside class="agent-sidebar">
+<div class="agent-mode"><span class="live-dot"></span><div><b>NEO Agent</b><small>Evidence-aware mode</small></div></div>
+<button class="new-thread" id="newThread">＋ New inquiry</button>
+<div class="agent-section-label">QUICK WORKFLOWS</div>
+<button class="prompt-chip" data-prompt="What were the major and recurring deviations in our facility?">Major / recurring deviations</button>
+<button class="prompt-chip" data-prompt="Prepare the evidence for the auditor asking about the sampling procedure.">Prepare audit evidence</button>
+<button class="prompt-chip" data-prompt="Show the current SOP reference for the sampling procedure.">Find current SOP</button>
+<button class="prompt-chip" data-prompt="Compare the repeated cleaning deviations and their CAPA history.">Compare repeated deviations</button>
+<button class="prompt-chip" data-prompt="Prepare a change-control framework for a process gap found during an audit.">Prepare change control</button>
+<div class="agent-section-label">GUARDRAILS</div>
+<div class="guardrail"><span>✓</span> Source-linked outputs</div>
+<div class="guardrail"><span>✓</span> Human approval gate</div>
+<div class="guardrail"><span>✓</span> No autonomous communication</div>
+</aside>
+
+<section class="agent-main">
+<div class="agent-intro" id="agentIntro">
+<div class="agent-orb"><span>N</span></div>
+<div class="eyebrow gradient">NEO INTELLIGENCE CORE</div>
+<h1>What should NEO work on?</h1>
+<p>Ask NEO questions across the whole workspace. It can use the current page context, local NEO records, audit workflows and—when the deployment backend is connected—live web knowledge.</p><div class="agent-context-note"><b>Whole NEO access:</b> QMS · Incidents · Deviations · CAPA · Change Control · SOPs · Audit · Evidence · Approvals · Audit Trail · Departments · Careers · Contact · Web search.</div>
+<div class="starter-grid">
+<button data-prompt="What were the major and recurring deviations in our facility?"><b>Deviation intelligence</b><span>Find major and recurring events</span></button>
+<button data-prompt="Prepare the evidence for the auditor asking about the sampling procedure."><b>Audit preparation</b><span>Build a verified evidence pack</span></button>
+<button data-prompt="Show the current SOP reference for the sampling procedure."><b>SOP intelligence</b><span>Find exact controlled references</span></button>
+<button data-prompt="Compare the repeated cleaning deviations and their CAPA history."><b>CAPA & history</b><span>Connect prior related records</span></button>
+</div>
+</div>
+
+<div class="agent-thread" id="agentThread"></div>
+
+<form class="agent-composer neo-gemini-composer" id="agentForm">
+<div class="composer-meta"><span class="composer-status"><span class="live-dot"></span>NEO is ready</span><span id="voiceState">Voice available</span></div>
+<div class="composer-input">
+  <textarea id="agentInput" rows="2" placeholder="Ask NEO anything about your authorized workspace…"></textarea>
+  <button class="neo-mic-button" id="neoAgentVoice" type="button" aria-label="Talk to NEO" title="Talk to NEO">◌</button>
+  <button type="submit" aria-label="Send">➤</button>
+</div>
+<div class="composer-note"><span>Text + natural voice in one conversation</span><span>Department-first context · cross-functional knowledge when authorized</span></div>
+</form>
+</section>
+</main>
+</body></html>

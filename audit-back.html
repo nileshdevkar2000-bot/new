@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Audit Evidence Room | NEO</title><link rel="icon" href="assets/neo-mark.svg"><link rel="stylesheet" href="assets/neo.css"><script defer src="assets/auth.js"></script></head>
+<body class="theme-aurora workspace-page">
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark"><span>N</span></span><span class="brand-text">NEO</span></a>
+<nav class="main-nav"><a href="workspace.html">Command Center</a><a class="active" href="audit-back.html">Audit Evidence</a><a href="audit-access.html">Audit Access</a></nav>
+<div class="header-actions"><span class="tag">BACK ROOM ONLY</span><button class="btn btn-ghost" id="logoutBtn">Log out</button></div>
+</header>
+<main class="audit-room-page">
+<section class="container room-header"><div><div class="eyebrow gradient">AUTHORIZED BACK-ROOM VIEW</div><h1>Evidence Preparation Console</h1><p>Evidence-side tools only. This role retrieves and verifies sources but cannot operate the auditor-facing presentation controls.</p></div><div class="role-badge back">BACK ROOM ONLY</div></section>
+<section class="container room-grid"><div class="workspace-card room-main"><div class="card-head"><div><div class="eyebrow">AUDITOR REQUEST QUEUE</div><h2>Prepare verified evidence</h2></div><span class="status pending">SERVER CONTROLLED</span></div><div id="auditRequestList"></div></div><aside class="workspace-card room-side"><div class="eyebrow">EVIDENCE TOOLS</div><button class="room-action">Search SOP repository</button><button class="room-action">Search deviations</button><button class="room-action">Search CAPA / change control</button><a class="room-action" href="audit-pack.html">Open evidence-pack preparation</a><div class="room-warning">Back Room prepares evidence but cannot present it directly to the auditor.</div></aside></section>
+<section class="container section section-soft"><div class="cards"><div class="card"><div class="tag">SOURCE</div><h3>Current controlled document</h3><p>Identify the current approved revision and exact section.</p></div><div class="card"><div class="tag">HISTORY</div><h3>Related records</h3><p>Find previous deviations, CAPA and change-control links.</p></div><div class="card"><div class="tag">APPROVAL</div><h3>Human verification</h3><p>Route the evidence package to an authorized reviewer before presentation.</p></div></div></section>
+</main>
+<footer class="footer"><div class="container footer-bottom"><span>© 2026 NEO Private Limited</span><span>Back Room Only</span></div></footer>
+<script defer src="assets/audit-workflows.js"></script></body></html>

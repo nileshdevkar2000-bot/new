@@ -1,0 +1,5 @@
+[
+ {"id":"SOP-QC-019","title":"Sampling Procedure","text":"Controlled QC sampling procedure. Verify current revision, training evidence, sampling plan and applicable deviations before presentation."},
+ {"id":"SOP-MFG-042","title":"Cleaning Procedure","text":"Controlled manufacturing cleaning procedure. Verify current revision, cleaning records, deviations and CAPA links."},
+ {"id":"CC-CHANGE-184","title":"Change-Control Rationale","text":"Change-control evidence should include rationale, impact assessment, approval history and linked CAPA when applicable."}
+]

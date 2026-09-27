@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Audit Access Control | NEO</title><link rel="icon" href="assets/neo-mark.svg"><link rel="stylesheet" href="assets/neo.css"><script defer src="assets/neo.js"></script><script defer src="assets/auth.js"></script><script defer src="assets/audit-access.js"></script></head>
+<body class="theme-aurora workspace-page">
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark"><span>N</span></span><span class="brand-text">NEO</span></a>
+<nav class="main-nav"><a href="workspace.html">Command Center</a><a class="active" href="audit-access.html">Audit Access</a><a href="agent.html">NEO Agent</a></nav>
+<div class="header-actions"><a class="header-link" href="workspace.html">All Sections</a><button class="btn btn-ghost" id="logoutBtn">Log out</button></div>
+</header>
+<main class="module-page">
+<div class="container module-top">
+<a class="back-link" href="workspace.html">← Back to Command Center</a>
+<div class="eyebrow gradient">AUDIT ACCESS CONTROL</div>
+<h1>Separate permissions. Separate audit roles.</h1>
+<p>A person assigned to the auditor-facing side gets only the access needed for that role. A quality/evidence user gets a different authenticated workspace. No automatic crossover.</p>
+</div>
+<section class="container section">
+<div class="audit-access-grid">
+<div class="workspace-card audit-login-card">
+<div class="eyebrow">AUDIT ROLE LOGIN</div>
+<h2>Enter an authorized audit workspace</h2>
+<form id="auditAccessForm" class="auth-form">
+<label>Login ID<input id="auditLoginId" required placeholder="e.g. AUD-FR-001"></label>
+<label>Password<div class="password-wrap"><input id="auditPassword" type="password" required placeholder="Password"><button type="button" class="password-toggle" data-target="auditPassword">Show</button></div></label>
+<label>Role<select id="auditRole" required><option value="">Select audit role</option><option value="FRONT">Front Room Only</option><option value="BACK">Back Room Only</option><option value="ADMIN">Audit Access Administrator</option></select></label>
+<button class="btn btn-primary auth-submit" type="submit">Enter audit workspace</button>
+<div id="auditAccessMessage" class="small-message"></div>
+</form>
+<div class="demo-credential"><b>Prototype accounts</b><span>Front: AUD-FR-001 / Front@123</span><span>Back: AUD-BR-001 / Back@123</span><span>Admin: AUD-ADMIN-001 / Admin@123</span></div>
+</div>
+<div class="workspace-card access-map">
+<div class="eyebrow">ACCESS MODEL</div>
+<h2>What each role can see</h2>
+<div class="access-row"><span class="access-icon front">F</span><div><b>Front Room Only</b><small>Auditor interaction, question capture, approved presentation view.</small></div></div>
+<div class="access-row"><span class="access-icon back">B</span><div><b>Back Room Only</b><small>Evidence retrieval, SOP lookup, reports, SME verification and preparation.</small></div></div>
+<div class="access-row"><span class="access-icon admin">A</span><div><b>Audit Access Administrator</b><small>Manage audit-role profiles and access assignments.</small></div></div>
+<div class="permission-note"><b>No crossover by default.</b> A Front Room user cannot open the Back Room workspace. A Back Room user cannot use the Front Room presentation controls.</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer"><div class="container footer-bottom"><span>© 2026 NEO Private Limited</span><span>Audit access control prototype</span></div></footer>
+</body></html>

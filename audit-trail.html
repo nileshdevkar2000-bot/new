@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Audit Trail | NEO</title><link rel="icon" href="assets/neo-mark.svg">
+<link rel="stylesheet" href="assets/neo.css"><script defer src="assets/neo.js"></script><script defer src="assets/auth.js"></script><script defer src="assets/audit-trail.js"></script>
+</head>
+<body class="theme-aurora workspace-page">
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark"><span>N</span></span><span class="brand-text">NEO</span></a>
+<nav class="main-nav"><a href="workspace.html">Command Center</a><a href="qms.html">QMS</a><a class="active" href="audit-trail.html">Audit Trail</a><a href="agent.html">NEO Agent</a></nav>
+<div class="header-actions"><a class="header-link" href="workspace.html">All Sections</a><button class="btn btn-ghost" id="logoutBtn">Log out</button></div>
+</header>
+<main class="module-page">
+<div class="container module-top"><a class="back-link" href="workspace.html">← Command Center</a><div class="eyebrow gradient">AUDIT TRAIL / HISTORY</div><h1>Who did what, when.</h1><p>Material actions, signatures, changes and locks are recorded here. The same action-history component is available from every major NEO workspace.</p></div>
+<section class="container">
+<div class="qms-actionbar"><button class="action-btn primary" id="refreshTrail">↻ Refresh</button><button class="action-btn" id="exportTrail">Export visible trail</button><label class="audit-filter">Department<select id="auditDeptFilter"><option>Current scope</option><option>All</option><option>QA</option><option>QC</option><option>Manufacturing</option><option>Production</option><option>Supply Chain</option><option>R&amp;D</option><option>Clinical Trial</option><option>Regulatory Affairs</option><option>Pharmacovigilance</option><option>Complaint Handling</option><option>Opex</option></select></label><span class="tag">APPEND-ONLY · CLEAR DISABLED</span></div>
+<div class="workspace-card"><div class="card-head"><div><div class="eyebrow">ACTION HISTORY</div><h2>Audit events</h2></div><span class="tag">TRACEABLE</span></div><div id="auditTrailList" class="audit-log-list"></div></div>
+</section>
+</main>
+<footer class="footer"><div class="container footer-bottom"><span>© 2026 NEO Private Limited</span><span>Audit trail</span></div></footer>
+</body></html>

@@ -1,0 +1,20 @@
+(function(){
+ const params=new URLSearchParams(location.search),id=params.get('id')||params.get('deviation')||'DEV-001';
+ const fallback={id,title:'Sampling record discrepancy',dept:'QC',severity:'Major',status:'Locked',locked:true,description:'Prototype deviation record available for review.',step:'Level 1 Investigation',evidence:['SOP-QC-019','Training record','Instrument log']};
+ async function loadRecord(){const r=await fetch('/api/deviations/'+encodeURIComponent(id),{credentials:'same-origin'});const d=await r.json().catch(()=>({}));if(r.status===401){location.href='/login.html?next='+encodeURIComponent(location.pathname+location.search);throw new Error('Authentication required')}if(!r.ok)throw new Error(d.error||'Unable to load deviation');return d.deviation||fallback}
+ async function sign(){const r=await fetch('/api/deviations/'+encodeURIComponent(id),{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'sign-level-1'})});const d=await r.json();if(!r.ok)throw new Error(d.error||'Signature failed');return d.deviation}
+ document.addEventListener('DOMContentLoaded',async()=>{
+  let d; try { d=await loadRecord(); } catch(e){ document.getElementById('deviationHeader').innerHTML='<div class="small-message">'+String(e.message||'Unable to load deviation')+'</div>'; return; }
+  const safe=t=>String(t??'').replace(/[&<>\"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));
+  document.getElementById('deviationHeader').innerHTML=`<div class="eyebrow gradient">${safe(d.dept||'QMS')} · ${safe(d.id)}</div><h1>${safe(d.title||'Deviation')}</h1><p>${safe(d.description||'')}</p><div class="tag">${safe(d.status||'OPEN')} · ${safe(d.severity||'')}</div>`;
+  document.getElementById('devLockTag').textContent=d.locked?'LOCKED — VIEWABLE':'UNLOCKED';
+  document.getElementById('workflowSteps').innerHTML=['Record raised','Containment','Level 1 Investigation','QA review','CAPA / change control','Closure'].map((x,i)=>`<div class="workflow-link"><span class="workflow-number">0${i+1}</span><span><b>${x}</b><small>${i===2&&d.locked?'Signed and locked — evidence remains viewable':'Controlled workflow step'}</small></span></div>`).join('');
+  document.getElementById('linkedEvidence').innerHTML=(d.evidence||[]).map(x=>`<div class="card"><div class="tag">SOURCE</div><h3>${safe(x)}</h3><p>Linked evidence reference. Opening the record remains permitted when the deviation workflow step is locked.</p></div>`).join('');
+  const modal=document.getElementById('signatureModal');const close=()=>{modal.hidden=true;document.body.style.overflow='';};
+  document.getElementById('signLevel1')?.addEventListener('click',()=>{if(d.locked){document.getElementById('level1Message').textContent='This deviation is already locked. You can review it and its evidence, but the signed step cannot be reopened.';return}modal.hidden=false;document.body.style.overflow='hidden';});
+  document.getElementById('closeSignature')?.addEventListener('click',close);modal?.addEventListener('click',e=>{if(e.target===modal)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+  document.getElementById('confirmSignature')?.addEventListener('click',async()=>{const msg=document.getElementById('signatureMessage');msg.textContent='Recording server-side signature…';try{const updated=await sign();d.locked=updated.locked;d.status=updated.status;msg.textContent='Signature successful. The signature window will close automatically.';setTimeout(()=>{close();document.getElementById('devLockTag').textContent='LOCKED — VIEWABLE';document.getElementById('level1Message').textContent='Signed successfully. The locked deviation remains accessible for review.'},500)}catch(e){msg.textContent=e.message}});
+  document.querySelectorAll('[data-dev-prompt]').forEach(b=>b.addEventListener('click',()=>location.href='agent.html?context=deviation&deviation='+encodeURIComponent(d.id)+'&prompt='+encodeURIComponent(b.dataset.devPrompt)));
+  document.getElementById('agentContextLink').href='agent.html?context=deviation&deviation='+encodeURIComponent(d.id);
+ });
+})();

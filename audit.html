@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Audit Command Center | NEO</title><link rel="icon" href="assets/neo-mark.svg"><link rel="stylesheet" href="assets/neo.css"><script defer src="assets/neo.js"></script><script defer src="assets/auth.js"></script></head>
+<body class="theme-aurora workspace-page">
+<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark"><span>N</span></span><span class="brand-text">NEO</span></a>
+<nav class="main-nav"><a href="workspace.html">Command Center</a><a href="platform.html">Platform</a><a href="solutions.html">Solutions</a><a href="contact.html">Support</a></nav>
+<div class="header-actions"><a class="header-link" href="workspace.html">All Sections</a><button class="btn btn-ghost" id="logoutBtn" type="button">Log out</button></div><button class="mobile-toggle">Menu</button></header>
+<main class="module-page">
+<div class="container module-top">
+<a class="back-link" href="workspace.html">← Back to Command Center</a>
+<div class="eyebrow gradient">AUDIT</div><h1>Audit Command Center</h1><p>A controlled audit workflow with separate authenticated roles for auditor-facing presentation and evidence preparation.</p>
+</div>
+<section class="container section">
+<div class="module-work-grid">
+<div class="workspace-card">
+<div class="card-head"><div><div class="eyebrow">AVAILABLE WORKFLOWS</div><h2>Open a working area</h2></div><span class="tag">AUTHORIZED</span></div>
+<div class="workflow-list">
+<a class="workflow-link" href="audit-front.html"><span class="workflow-number">01</span><span><b>Front-room request capture</b><small>Open front-room request capture →</small></span></a><a class="workflow-link" href="audit-back.html"><span class="workflow-number">02</span><span><b>Back-room evidence retrieval</b><small>Open back-room evidence retrieval →</small></span></a><a class="workflow-link" href="audit-sop.html"><span class="workflow-number">03</span><span><b>Exact SOP references</b><small>Open exact sop references →</small></span></a><a class="workflow-link" href="audit-pack.html"><span class="workflow-number">04</span><span><b>Evidence pack preparation</b><small>Open evidence pack preparation →</small></span></a><a class="workflow-link" href="audit-sme.html"><span class="workflow-number">05</span><span><b>Human SME verification</b><small>Open human sme verification →</small></span></a><a class="workflow-link" href="audit-history.html"><span class="workflow-number">06</span><span><b>Audit request history</b><small>Open audit request history →</small></span></a>
+</div>
+</div>
+<div class="workspace-card module-summary"><div class="permission-note"><b>QA access:</b> QA can review incident activity across departments. QC remains scoped to QC records.</div>
+<div class="eyebrow">NEO CONTROL MODEL</div><h2>Access → evidence → human review</h2>
+<p>NEO can retrieve and prepare information, but regulated or externally released actions remain subject to authorized human review and controlled approval.</p>
+<div class="mini-chain"><span>Source</span><b>→</b><span>NEO</span><b>→</b><span>Human</span><b>→</b><span>Release</span></div>
+</div>
+</div>
+</section>
+<section class="container section section-soft">
+<div class="cards">
+<div class="card"><div class="tag">01</div><h3>Search</h3><p>Find the authorized records relevant to the current request.</p></div>
+<div class="card"><div class="tag">02</div><h3>Interpret</h3><p>Structure the evidence and show the source path behind the output.</p></div>
+<div class="card"><div class="tag">03</div><h3>Approve</h3><p>Move important actions through the human authority gate.</p></div>
+</div>
+</section>
+<section class="container section"><div class="workspace-card"><div class="eyebrow gradient">FRONT-ROOM REQUEST CAPTURE</div><h2>Create a new auditor request</h2><form id="newAuditRequest" class="auth-two"><label>Question / request<input id="auditTitle" required placeholder="e.g. Show the current sampling procedure"></label><label>Department<select id="auditDept"><option>QA</option><option>QC</option><option>Manufacturing</option><option>Clinical Trial</option></select></label><div><button class="btn btn-primary" type="submit">Log auditor request</button><div id="auditFormMessage" class="small-message"></div></div></form></div></section>
+<section class="section agent-embed-section"><div class="container"><div class="workspace-card embedded-agent">
+<div class="card-head"><div><div class="eyebrow gradient">NEO AGENT · AUDIT COMMAND CENTER</div><h2>Ask the NEO agent about auditor questions, evidence packs, SOP references and human review.</h2></div><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-ghost" href="audit-access.html">Audit Access Control</a><a class="btn btn-ghost" href="agent.html">Open full NEO Agent</a></div></div>
+<div class="embedded-agent-grid">
+<div class="embedded-prompts" data-module="Audit Command Center">
+<button data-embedded-prompt="What should I review first in this Audit Command Center workspace?">What should I review first?</button>
+<button data-embedded-prompt="Show the key evidence and records relevant to this Audit Command Center workspace.">Show relevant evidence</button>
+<button data-embedded-prompt="What trends or recurring issues should I look for here?">Show trends</button>
+</div>
+<div class="embedded-chat"><div class="embedded-output" data-embedded-output>NEO is ready. Choose a prompt to see an evidence-oriented demonstration response.</div><div class="embedded-input"><input data-embedded-input placeholder="Ask NEO…"><button data-embedded-send>Send</button></div></div>
+</div></div></div></section></main>
+<footer class="footer"><div class="container footer-bottom"><span>© 2026 NEO</span><span>Audit Command Center workspace</span></div></footer>
+<script defer src="assets/embedded-agent.js"></script><script defer src="assets/audit-workflows.js"></script></body></html>
